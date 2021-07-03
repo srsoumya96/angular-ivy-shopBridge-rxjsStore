@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { eventDispatcher } from './store/store';
+import { eventDispatcher, store } from './store/store';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,10 @@ export class LoginServiceService {
     pwd: '1234',
     name: 'Soumya'
   };
+
+  getLogin() {
+    return store.asObservable();
+  }
 
   loginAdmin(empId, pwd) {
     if (this.AdminData.empId == empId && this.AdminData.pwd == pwd) {

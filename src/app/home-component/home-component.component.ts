@@ -1,8 +1,9 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginServiceService } from '../login-service.service';
 import { ProductServiceService } from '../product-service.service';
 import { ProductModel } from '../product.model';
-import { store } from '../store/store';
+import { eventDispatcher, store } from '../store/store';
 
 @Component({
   selector: 'app-home-component',
@@ -13,9 +14,10 @@ export class HomeComponentComponent implements OnInit {
   constructor(
     private global: ProductServiceService,
     private router: Router,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private loginService: LoginServiceService
   ) {
-    store.subscribe(state => {
+    this.loginService.getLogin().subscribe(state => {
       const { loggedInUser } = state;
       this.ngZone.run(() => {
         this.loggedInUser = loggedInUser;

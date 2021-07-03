@@ -48,6 +48,10 @@ eventDispatcher.subscribe((data: Event) => {
       console.log(loggedInState);
       store.next(loggedInState);
       break;
+
+    case 'getLogin':
+      store.next(loggedInState);
+      break;
     default:
       break;
   }

@@ -12,7 +12,16 @@ export class HeaderComponentComponent implements OnInit {
   constructor(
     private loginService: LoginServiceService,
     private router: Router
-  ) {}
+  ) {
+    store.subscribe(state => {
+      const { loggedInUser } = state;
+        this.loggedInUser = loggedInUser;
+
+      if (!this.loggedInUser.loggedIn) {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
 
   loggedInUser = {
     loggedIn: false,
@@ -20,7 +29,9 @@ export class HeaderComponentComponent implements OnInit {
     name: ''
   };
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loginService.getLogin();
+  }
 
   logout() {
     this.loginService.logOutAdmin();

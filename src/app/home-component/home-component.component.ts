@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { LoginServiceService } from '../login-service.service';
 import { ProductServiceService } from '../product-service.service';
 import { ProductModel } from '../product.model';
-import { eventDispatcher, store } from '../store/store';
 
 @Component({
   selector: 'app-home-component',
@@ -16,25 +15,7 @@ export class HomeComponentComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     private loginService: LoginServiceService
-  ) {
-    this.loginService.getLogin().subscribe(state => {
-      const { loggedInUser } = state;
-      this.ngZone.run(() => {
-        this.loggedInUser = loggedInUser;
-        console.log(this.loggedInUser.loggedIn);
-      });
-
-      if (this.loggedInUser.loggedIn) {
-        this.router.navigate(['/login']);
-      }
-    });
-  }
-
-  loggedInUser = {
-    loggedIn: false,
-    empId: '',
-    name: ''
-  };
+  ) {}
 
   Products: ProductModel[] = [];
   ngOnInit() {

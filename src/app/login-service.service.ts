@@ -15,7 +15,9 @@ export class LoginServiceService {
   };
 
   getLogin() {
-    return store.asObservable();
+    eventDispatcher.next({
+      type: 'getLogin'
+    });
   }
 
   loginAdmin(empId, pwd) {

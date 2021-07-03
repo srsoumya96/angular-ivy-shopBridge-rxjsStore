@@ -1,0 +1,28 @@
+<app-header-component></app-header-component>
+
+<input type="button" value="Add Product" (click)="openAddPopup();"/>
+
+<div class="overlay" *ngIf="addPopup">
+  <div class="popup">
+    <h3>Please Add Product Details</h3>
+    <a class="close" (click)="closeAddPopup();">&times;</a>
+    <div class="content">
+      <input type="text" [(ngModel)]="pID" placeholder="Add Product ID" />
+      <input type="text" [(ngModel)]="pName" placeholder="Add Product Name" />
+      <textarea [(ngModel)]="pDesc" placeholder="Add Product Description"></textarea>
+      <input type="button" value="Add Product" (click)="addProduct()" />
+    </div>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="notification.message">
+  <div class="popup">
+    <a class="close" (click)="notification.message = ''">&times;</a>
+    <div class="content">
+      <h3>{{notification.message}}</h3>
+      <input type="button" value="Ok" (click)="notification.message = ''" />
+    </div>
+  </div>
+</div>
+
+<app-product-list [data]="Products"></app-product-list>

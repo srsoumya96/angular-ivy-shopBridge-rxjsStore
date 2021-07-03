@@ -1,0 +1,14 @@
+<form class="card" (submit)="loginAdmin(empId.value, pwd.value);">
+  <h1>Admin Login </h1>
+  <tr class="item">
+
+    <label  for="empId">Employee ID : </label>
+    <input #empId id="empId" type="text" placeholder="Admin Employee ID" />
+  </tr>
+  <tr class="item">
+    <label  for="pwd">Password : </label>
+    <input #pwd id="pwd" type="password" placeholder="Password" />
+  </tr>
+  <input class="itemButton" type="submit" value="Login" />
+
+</form>

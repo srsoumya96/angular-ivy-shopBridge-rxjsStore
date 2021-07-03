@@ -1,0 +1,51 @@
+<table>
+
+  <thead>
+    <tr>
+      <td>Product ID</td>
+      <td>Product Name </td>
+      <td> Description</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prod of data">
+      <td>{{prod.ProductID}}</td>
+      <td>{{prod.ProductName}}</td>
+      <td>{{prod.ProductDesc}}</td>
+
+      <td>
+        <input type="button" value="Edit Item" (click)="openEditPopup(prod.id);"/>
+      </td>
+      <td>
+        <input type="button" value="Delete Item" (click)="openDeletePopup(prod.id);"/>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<div class="overlay" *ngIf="editPopup">
+  <div class="popup">
+    <h3>Edit Product Details</h3>
+    <a class="close" (click)="closeEditPopup();">&times;</a>
+    <div class="content">
+      <input type="text" [(ngModel)]="pID" placeholder="Add Product ID" />
+      <input type="text" [(ngModel)]="pName" placeholder="Add Product Name" />
+      <textarea [(ngModel)]="pDesc" placeholder="Add Product Description"></textarea>
+      <input type="button" value="Save Changes" (click)="editProduct()" />
+    </div>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="deletePopup">
+  <div class="popup">
+    <h3>Please Add Product Details</h3>
+    <a class="close" (click)="closeDeletePopup();">&times;</a>
+    <div class="content">
+      <h3>Are you sure you want to delete product? </h3>
+      <input type="button" value="Confirm Delete" (click)="deleteProduct()" />
+    </div>
+  </div>
+</div>
+

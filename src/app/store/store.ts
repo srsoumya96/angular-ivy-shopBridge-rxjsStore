@@ -45,6 +45,7 @@ eventDispatcher.subscribe((data: Event) => {
           name: ''
         }
       };
+      console.log(loggedInState);
       store.next(loggedInState);
       break;
     default:

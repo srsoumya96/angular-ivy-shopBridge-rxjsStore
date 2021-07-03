@@ -16,6 +16,7 @@ export class LoginComponentComponent implements OnInit {
     store.subscribe(state => {
       const { loggedInUser } = state;
       this.loggedInUser = loggedInUser;
+      console.log(this.loggedInUser);
     });
   }
 

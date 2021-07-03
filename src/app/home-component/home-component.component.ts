@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductServiceService } from '../product-service.service';
 import { ProductModel } from '../product.model';
-
+import { store } from '../store/store';
 
 @Component({
   selector: 'app-home-component',
@@ -9,7 +10,29 @@ import { ProductModel } from '../product.model';
   styleUrls: ['./home-component.component.css']
 })
 export class HomeComponentComponent implements OnInit {
-  constructor(private global: ProductServiceService) {}
+  constructor(
+    private global: ProductServiceService,
+    private router: Router,
+    private ngZone: NgZone
+  ) {
+    store.subscribe(state => {
+      const { loggedInUser } = state;
+      this.ngZone.run(() => {
+        this.loggedInUser = loggedInUser;
+        console.log(this.loggedInUser.loggedIn);
+      });
+
+      if (this.loggedInUser.loggedIn) {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+
+  loggedInUser = {
+    loggedIn: false,
+    empId: '',
+    name: ''
+  };
 
   Products: ProductModel[] = [];
   ngOnInit() {
@@ -23,10 +46,10 @@ export class HomeComponentComponent implements OnInit {
   pDesc: string = '';
 
   notification = {
-    type : '',
+    type: '',
     message: ''
   };
-  
+
   openAddPopup() {
     this.addPopup = true;
   }

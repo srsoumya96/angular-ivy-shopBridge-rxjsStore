@@ -25,11 +25,7 @@ export class LoginServiceService {
       });
     } else {
       eventDispatcher.next({
-        type: 'LogOutAdmin',
-        payload: {
-          empId: '',
-          name: ''
-        }
+        type: 'LogOutAdmin'
       });
     }
   }

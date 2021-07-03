@@ -29,6 +29,11 @@
       <input type="button" class="btn btn-danger" value="Delete Item" (click)="openDeletePopup(prod.id);"/>
     </div>
   </div>
+  <div class="row" *ngIf="data.length == 0">
+    <div class="col-xs-12" style="text-align : center">
+      <h4>No Records Available...</h4>
+    </div>
+  </div>
 </div>
 
 <div class="overlay" *ngIf="editPopup">
@@ -54,7 +59,7 @@
   <div class="popup">
     <a class="close" (click)="closeDeletePopup();">&times;</a>
     <div class="content">
-      <h3>Are you sure you want to delete product? </h3>
+      <h4>Are you sure you want to delete product? </h4>
       <input type="button" value="Confirm Delete" class="btn btn-danger" (click)="deleteProduct()" />
     </div>
   </div>

@@ -49,6 +49,9 @@ export class HomeComponentComponent implements OnInit {
       ProductDesc: this.pDesc
     };
     this.notification = this.global.addProduct(temp);
+    this.pID = '';
+    this.pName = '';
+    this.pDesc = '';
     this.closeAddPopup();
   }
 }

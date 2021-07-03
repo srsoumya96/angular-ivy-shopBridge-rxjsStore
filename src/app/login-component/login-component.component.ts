@@ -22,10 +22,12 @@ export class LoginComponentComponent implements OnInit {
 
   loginAdmin(empId, pwd) {
     this.loggedInUser = this.loginService.loginAdmin(empId, pwd);
-    if (this.loggedInUser.loggedIn) {
-      this.router.navigate(['/home']);
-    } else {
-      alert('Please enter correct credentials');
+    if (empId != '' && pwd != '') {
+      if (this.loggedInUser.loggedIn) {
+        this.router.navigate(['/home']);
+      } else {
+        alert('Please enter correct credentials');
+      }
     }
   }
 }

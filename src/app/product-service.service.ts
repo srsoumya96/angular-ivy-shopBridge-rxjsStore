@@ -57,7 +57,9 @@ export class ProductServiceService {
 
   editProduct(prod: ProductModel) {
     let temp = this.products.findIndex(e => e.id == prod.id);
-    if (!!temp) {
+    console.log(prod);
+    console.log(temp);
+    if (temp != -1) {
       this.products[temp] = {
         id: prod.id,
         ProductID: prod.ProductID,

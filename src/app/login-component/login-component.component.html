@@ -1,14 +1,21 @@
 <form class="card" (submit)="loginAdmin(empId.value, pwd.value);">
-  <h1>Admin Login </h1>
-  <tr class="item">
+  <div class="form-header">
+    <h1>Admin Login </h1>
+  </div>
+  <div class="form-group">
+    <tr class="item">
 
-    <label  for="empId">Employee ID : </label>
-    <input #empId id="empId" type="text" placeholder="Admin Employee ID" />
-  </tr>
-  <tr class="item">
-    <label  for="pwd">Password : </label>
-    <input #pwd id="pwd" type="password" placeholder="Password" />
-  </tr>
-  <input class="itemButton" type="submit" value="Login" />
-
+      <label  for="empId">Employee ID : </label>
+      <input #empId id="empId" class="form-control" type="text" placeholder="Admin Employee ID" required />
+    </tr>
+  </div>
+  <div class="form-group">
+    <tr class="item">
+      <label  for="pwd">Password : </label>
+      <input #pwd id="pwd" class="form-control" type="password" placeholder="Password" required/>
+    </tr>
+  </div>
+  <div style="text-align : center">
+    <input class="btn btn-default" type="submit" value="Login" />
+  </div>
 </form>

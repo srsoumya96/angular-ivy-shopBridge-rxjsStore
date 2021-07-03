@@ -12,7 +12,7 @@ export class ProductListComponent implements OnInit {
   constructor(private global: ProductServiceService) {}
 
   notification = {
-    type : '',
+    type: '',
     message: ''
   };
 
@@ -61,7 +61,7 @@ export class ProductListComponent implements OnInit {
       ProductID: this.pID
     };
 
-    let res = this.global.editProduct(tempProd);
+    this.notification = this.global.editProduct(tempProd);
 
     this.ngOnInit();
     this.closeEditPopup();

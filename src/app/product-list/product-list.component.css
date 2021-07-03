@@ -8,6 +8,7 @@
   transition: opacity 500ms;
   visibility: visible;
   opacity: 1;
+  z-index: 999;
 }
 
 .popup {
@@ -50,11 +51,10 @@
   }
 }
 
-.tableBody {
-  border: 1px black solid;
-  border-top: 5px crimson solid;
+.btn {
+  margin: 2px;
 }
 
-input {
-  margin: 3px;
+h5 {
+  font-weight: bold;
 }

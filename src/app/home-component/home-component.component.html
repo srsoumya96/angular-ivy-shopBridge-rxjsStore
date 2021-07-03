@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12"><input class="btn-primary" style="float : right;" type="button" value="Add Product" (click)="openAddPopup();"/>
+    <div class="col-xs-12"><input class=" btn btn-primary" style="float : right;" type="button" value="Add Product" (click)="openAddPopup();"/>
     </div>
   </div>
 </div>
@@ -14,13 +14,21 @@
 
 <div class="overlay" *ngIf="addPopup">
   <div class="popup">
-    <h3>Please Add Product Details</h3>
+    <h4>Please Add Product Details</h4>
     <a class="close" (click)="closeAddPopup();">&times;</a>
     <div class="content">
-      <input type="text" [(ngModel)]="pID" placeholder="Add Product ID" />
-      <input type="text" [(ngModel)]="pName" placeholder="Add Product Name" />
-      <textarea [(ngModel)]="pDesc" placeholder="Add Product Description"></textarea>
-      <input type="button" value="Add Product" (click)="addProduct()" />
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="pID" placeholder="Add Product ID" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="pName" placeholder="Add Product Name" />
+      </div>
+      <div class="form-group">
+        <textarea [(ngModel)]="pDesc" class="form-control" placeholder="Add Product Description"></textarea>
+      </div>
+      <div class="form-group" style="text-align : center">
+        <input type="button" class="btn btn-primary" value="Add Product" (click)="addProduct()" />
+      </div>
     </div>
   </div>
 </div>
@@ -29,8 +37,8 @@
   <div class="popup">
     <a class="close" (click)="notification.message = ''">&times;</a>
     <div class="content">
-      <h3>{{notification.message}}</h3>
-      <input type="button" value="Ok" (click)="notification.message = ''" />
+      <h4>{{notification.message}}</h4>
+      <input type="button" value="Ok" class="btn btn-primary" (click)="notification.message = ''" />
     </div>
   </div>
 </div>

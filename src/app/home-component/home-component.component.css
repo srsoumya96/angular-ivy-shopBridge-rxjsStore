@@ -8,6 +8,7 @@
   transition: opacity 500ms;
   visibility: visible;
   opacity: 1;
+  z-index: 999;
 }
 
 .popup {

@@ -25,32 +25,47 @@
       <h6>{{prod.ProductDesc}}</h6>
     </div>
     <div class="col-xs-4">
-      <input type="button" class="btn-primary" value="Edit Item" (click)="openEditPopup(prod.id);"/>
-      <input type="button" class="btn-danger" value="Delete Item" (click)="openDeletePopup(prod.id);"/>
+      <input type="button" class="btn btn-primary" value="Edit Item" (click)="openEditPopup(prod.id);"/>
+      <input type="button" class="btn btn-danger" value="Delete Item" (click)="openDeletePopup(prod.id);"/>
     </div>
   </div>
 </div>
 
 <div class="overlay" *ngIf="editPopup">
   <div class="popup">
-    <h3>Edit Product Details</h3>
+    <h4>Edit Product Details</h4>
     <a class="close" (click)="closeEditPopup();">&times;</a>
     <div class="content">
-      <input type="text" [(ngModel)]="pID" placeholder="Add Product ID" />
-      <input type="text" [(ngModel)]="pName" placeholder="Add Product Name" />
-      <textarea [(ngModel)]="pDesc" placeholder="Add Product Description"></textarea>
-      <input type="button" value="Save Changes" (click)="editProduct()" />
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="pID" placeholder="Add Product ID" />
+      </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="pName"  class="form-control" placeholder="Add Product Name" />
+      </div>
+      <div class="form-group">
+        <textarea  class="form-control" [(ngModel)]="pDesc" placeholder="Add Product Description"></textarea>
+      </div>
+      <input type="button" class="btn btn-primary" value="Save Changes" (click)="editProduct()" />
     </div>
   </div>
 </div>
 
 <div class="overlay" *ngIf="deletePopup">
   <div class="popup">
-    <h3>Please Add Product Details</h3>
     <a class="close" (click)="closeDeletePopup();">&times;</a>
     <div class="content">
       <h3>Are you sure you want to delete product? </h3>
-      <input type="button" value="Confirm Delete" (click)="deleteProduct()" />
+      <input type="button" value="Confirm Delete" class="btn btn-danger" (click)="deleteProduct()" />
+    </div>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="notification.message">
+  <div class="popup">
+    <a class="close" (click)="notification.message = ''">&times;</a>
+    <div class="content">
+      <h4>{{notification.message}}</h4>
+      <input type="button" value="Ok" class="btn btn-primary" (click)="notification.message = ''" />
     </div>
   </div>
 </div>

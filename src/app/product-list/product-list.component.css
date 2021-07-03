@@ -49,3 +49,12 @@
     width: 70%;
   }
 }
+
+.tableBody {
+  border: 1px black solid;
+  border-top: 5px crimson solid;
+}
+
+input {
+  margin: 3px;
+}

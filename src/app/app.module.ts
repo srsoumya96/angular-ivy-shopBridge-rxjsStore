@@ -12,6 +12,7 @@ import { LoginServiceService } from './login-service.service';
 import { ProductServiceService } from './product-service.service';
 import { ProductListComponent } from './product-list/product-list.component';
 import { HeaderComponentComponent } from './header-component/header-component.component';
+import { FooterComponentComponent } from './footer-component/footer-component.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRoutingModule],
@@ -21,7 +22,8 @@ import { HeaderComponentComponent } from './header-component/header-component.co
     LoginComponentComponent,
     HomeComponentComponent,
     ProductListComponent,
-    HeaderComponentComponent
+    HeaderComponentComponent,
+    FooterComponentComponent
   ],
   bootstrap: [AppComponent],
   providers: [LoginServiceService, ProductServiceService]

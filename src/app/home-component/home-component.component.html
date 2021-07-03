@@ -1,6 +1,16 @@
-<app-header-component></app-header-component>
+<div>
+  <app-header-component></app-header-component>
+</div>
 
-<input type="button" value="Add Product" (click)="openAddPopup();"/>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12"><input class="btn-primary" style="float : right;" type="button" value="Add Product" (click)="openAddPopup();"/>
+    </div>
+  </div>
+</div>
+
+
+
 
 <div class="overlay" *ngIf="addPopup">
   <div class="popup">
@@ -26,3 +36,7 @@
 </div>
 
 <app-product-list [data]="Products"></app-product-list>
+
+<div>
+  <app-footer-component></app-footer-component>
+</div>

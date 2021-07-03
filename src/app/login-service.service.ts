@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { eventDispatcher } from './store/store';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,9 +16,27 @@ export class LoginServiceService {
 
   loginAdmin(empId, pwd) {
     if (this.AdminData.empId == empId && this.AdminData.pwd == pwd) {
-      return { loggedIn: true, name: 'Soumya' };
+      eventDispatcher.next({
+        type: 'LogInAdmin',
+        payload: {
+          empId: empId,
+          name: this.AdminData.name
+        }
+      });
     } else {
-      return { loggedIn: false, name: '' };
+      eventDispatcher.next({
+        type: 'LogOutAdmin',
+        payload: {
+          empId: '',
+          name: ''
+        }
+      });
     }
+  }
+
+  logOutAdmin() {
+    eventDispatcher.next({
+      type: 'LogOutAdmin'
+    });
   }
 }

@@ -1,8 +1,9 @@
 .footerBar {
-  width: 100%;
   height: 20px;
   background-color: crimson;
-  margin: 0 auto;
+  margin-bottom: 0px;
   position: fixed;
   bottom: 0px;
+  left: 0px;
+  right: 0px;
 }

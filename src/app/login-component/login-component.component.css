@@ -19,10 +19,6 @@
   margin: 20px auto;
 }
 
-h1 {
-  padding-top: 40px;
-}
-
 .overlay {
   position: fixed;
   top: 0;
@@ -74,4 +70,16 @@ h1 {
   .popup {
     width: 70%;
   }
+}
+
+.logo {
+  float: right;
+  font-size: 16px;
+  padding-top: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  padding-top: 40px;
 }

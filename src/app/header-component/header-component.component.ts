@@ -33,7 +33,16 @@ export class HeaderComponentComponent implements OnInit {
     this.loginService.getLogin();
   }
 
+  logoutPopup: boolean = false;
+  openLogoutPopup() {
+    this.logoutPopup = true;
+  }
+
+  closeLogoutPopup() {
+    this.logoutPopup = false;
+  }
   logout() {
     this.loginService.logOutAdmin();
+    this.closeLogoutPopup();
   }
 }

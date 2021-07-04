@@ -7,7 +7,20 @@
   <div class="row">
     <div class="col-md-12">
       <h2 class="welcomeHeader">Welcome {{loggedInUser.name}}</h2>
-      <input class="btn btn-info" type="button" value="Logout" (click)="logout();" />
+      <input id="logoutButton" class="btn btn-info" type="button" value="Logout" (click)="openLogoutPopup();" />
+    </div>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="logoutPopup">
+  <div class="popup">
+    <a class="close" (click)="closeLogoutPopup()">&times;</a>
+    <div class="content">
+      <h4>Are you sure you want to log out?</h4>
+      <div style="float : right; margin : 10px 40px 0 0;">
+        <input type="button" value="LogOut" class="btn btn-info popupButtons" (click)="logout();" />
+        <input type="button" value="Cancel" class="btn btn-primary popupButtons" (click)="closeLogoutPopup()" />
+      </div>
     </div>
   </div>
 </div>

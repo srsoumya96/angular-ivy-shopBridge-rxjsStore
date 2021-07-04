@@ -20,13 +20,13 @@
   </div>
 </form>
 
-<div class="overlay" *ngIf="notification.message">
+<div class="overlay" *ngIf="notification.type == 'Error'">
   <div class="popup">
-    <a class="close" (click)="notification.message = ''">&times;</a>
+    <a class="close" (click)="notification.type = ''; notification.message = '';">&times;</a>
     <div class="content">
       <h4>{{notification.message}}</h4>
       <div style="float : right; margin : 10px 40px 0 0;">
-        <input type="button" value="Ok" class="btn btn-primary" (click)="notification.message = ''" />
+        <input type="button" value="Ok" class="btn btn-primary" (click)="notification.type = ''; notification.message = '';" />
       </div>
     </div>
   </div>

@@ -18,8 +18,10 @@ export class HomeComponentComponent implements OnInit {
   ) {}
 
   Products: ProductModel[] = [];
+  filteredArray: ProductModel[] = [];
   ngOnInit() {
     this.Products = this.global.getProducts();
+    this.filteredArray = this.Products;
   }
 
   addPopup = false;
@@ -59,5 +61,17 @@ export class HomeComponentComponent implements OnInit {
     this.pPrice = '';
     this.pQuantity = '';
     this.closeAddPopup();
+  }
+
+  searchItem: string = '';
+  searchFunc(e) {
+    this.searchItem = this.searchItem.toLowerCase();
+    this.Products = this.filteredArray;
+    this.Products = this.Products.filter(prod => {
+      return (
+        prod.ProductID.toLowerCase().includes(this.searchItem) ||
+        prod.ProductName.toLowerCase().includes(this.searchItem)
+      );
+    });
   }
 }

@@ -4,7 +4,10 @@
 
 <div class="container addButtonRow">
   <div class="row">
-    <div class="col-xs-12"><input class=" btn btn-primary" style="float : right;" type="button" value="Add Product" (click)="openAddPopup();"/>
+    <div class="col-xs-12">
+      <input type="text" style="float: left; width: 300px;"
+      [(ngModel)]="searchItem" class="form-control" placeholder="Search..." (keyup)="searchFunc($event)"/>
+      <input class=" btn btn-primary" style="float : right;" type="button" value="Add Product" (click)="openAddPopup();"/>
     </div>
   </div>
 </div>

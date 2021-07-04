@@ -20,6 +20,11 @@ export class LoginComponentComponent implements OnInit {
     });
   }
 
+  notification = {
+    type: '',
+    message: ''
+  };
+
   loggedInUser = {
     loggedIn: false,
     empId: '',
@@ -29,11 +34,9 @@ export class LoginComponentComponent implements OnInit {
   ngOnInit() {}
 
   loginAdmin(empId, pwd) {
-    this.loginService.loginAdmin(empId, pwd);
+    this.notification = this.loginService.loginAdmin(empId, pwd);
     if (this.loggedInUser.loggedIn) {
       this.router.navigate(['/home']);
-    } else {
-      alert('Please enter correct credentials');
     }
   }
 }

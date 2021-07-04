@@ -29,10 +29,16 @@ export class LoginServiceService {
           name: this.AdminData.name
         }
       });
+
+      return { type: 'Success', message: 'Login Successful.' };
     } else {
       eventDispatcher.next({
         type: 'LogOutAdmin'
       });
+      return {
+        type: 'Error',
+        message: 'Please Enter Correct Admin Credentials.'
+      };
     }
   }
 

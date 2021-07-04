@@ -58,3 +58,14 @@
 h5 {
   font-weight: bold;
 }
+
+.table_head {
+  border-bottom: 5px crimson solid;
+  margin-bottom: 10px;
+}
+
+.table_body {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px whitesmoke solid;
+}

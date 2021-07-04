@@ -27,6 +27,8 @@ export class HomeComponentComponent implements OnInit {
   pID: string = '';
   pName: string = '';
   pDesc: string = '';
+  pPrice: string = '';
+  pQuantity: string = '';
 
   notification = {
     type: '',
@@ -46,12 +48,16 @@ export class HomeComponentComponent implements OnInit {
       id: this.Products.length + 1,
       ProductID: this.pID,
       ProductName: this.pName,
-      ProductDesc: this.pDesc
+      ProductDesc: this.pDesc,
+      Price: this.pPrice,
+      Quantity: this.pQuantity
     };
     this.notification = this.global.addProduct(temp);
     this.pID = '';
     this.pName = '';
     this.pDesc = '';
+    this.pPrice = '';
+    this.pQuantity = '';
     this.closeAddPopup();
   }
 }

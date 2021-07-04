@@ -50,3 +50,31 @@
     width: 70%;
   }
 }
+
+.headBar {
+  background-color: crimson;
+  height: 40px;
+  margin-top: 0;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.footerBar {
+  height: 20px;
+  background-color: crimson;
+  margin-bottom: 0px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.table_body {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.addButtonRow {
+  margin-top: 60px;
+}

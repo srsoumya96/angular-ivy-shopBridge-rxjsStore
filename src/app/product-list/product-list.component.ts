@@ -42,6 +42,8 @@ export class ProductListComponent implements OnInit {
   pID: string = '';
   pName: string = '';
   pDesc: string = '';
+  pPrice: string = '';
+  pQuantity: string = '';
 
   editPopup = false;
   openEditPopup(id) {
@@ -51,6 +53,8 @@ export class ProductListComponent implements OnInit {
     this.pName = tempProd.ProductName;
     this.pID = tempProd.ProductID;
     this.pDesc = tempProd.ProductDesc;
+    this.pPrice = tempProd.Price;
+    this.pQuantity = tempProd.Quantity;
     this.editPopup = true;
   }
   editProduct() {
@@ -58,7 +62,9 @@ export class ProductListComponent implements OnInit {
       id: this.id,
       ProductName: this.pName,
       ProductDesc: this.pDesc,
-      ProductID: this.pID
+      ProductID: this.pID,
+      Price: this.pPrice,
+      Quantity: this.pQuantity
     };
 
     this.notification = this.global.editProduct(tempProd);
